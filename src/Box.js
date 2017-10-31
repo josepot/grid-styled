@@ -1,17 +1,24 @@
 import React from 'react'
-import { space, width } from 'styled-system'
+import { space, width, removeProps, propTypes } from 'styled-system'
 import styled from './styled'
 
-// hoc to remove unwanted width attribute
-const hoc = Comp => ({width, ...props}) => <Comp {...props} w={width} />
+const CleanDiv = props => {
+  const cleanProps = removeProps(props)
+  return <div {...cleanProps} />
+}
+
+CleanDiv.propTypes = {
+  ...propTypes.width,
+  ...propTypes.wrap,
+}
 
 export const flex = ({flex}) => flex ? {flex} : null
 
-const Box = hoc(styled('div',
+const Box = styled(CleanDiv,
   {boxSizing: 'border-box'},
   width,
   space,
   flex
-))
+)
 
 export default Box
