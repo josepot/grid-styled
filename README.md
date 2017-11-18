@@ -150,7 +150,7 @@ Margin and padding props follow a shorthand syntax for specifying direction.
 - `px`: padding-left and padding-right
 - `py`: padding-top and padding-bottom
 
-#### `flex` (string)
+#### `flex` (string|array)
 
 Sets the `flex` property.
 
@@ -158,16 +158,32 @@ Sets the `flex` property.
 <Box flex='1 1 auto' />
 ```
 
+#### `order` (number|string|array)
+
+Sets the `order` property.
+
+```jsx
+<Box order={2} />
+```
+
+#### `is` (Component|string)
+
+Sets the underlying HTML element.
+
+```jsx
+<Box is='section' />
+```
+
 ## `<Flex />`
 
 The Flex component extends the Box component and sets display flex.
 It also includes the following props:
 
-- `align` (string) sets `align-items`
-- `justify` (string) sets `justify-content`
-- `order` (number) sets `order`
-- `wrap` (boolean) sets `flex-wrap: wrap`
-- `column` (boolean) sets `flex-direction: column`
+- `align` (string|array) sets `align-items`
+- `justify` (string|array) sets `justify-content`
+- `direction` (string|array) sets `flex-direction`
+- `wrap` (boolean|array) sets `flex-wrap: wrap`
+- `column` (boolean) shortcut for `flex-direction: column`
 
 
 ## `<Grid />`
@@ -178,7 +194,7 @@ for an alternative to flexbox layout.
 
 ## Responsive Styles
 
-Width, margin, and padding props accept arrays as values for mobile-first responsive styles,
+Most props accept arrays as values for mobile-first responsive styles,
 where the first value is for all breakpoints, then each value after is for a min-width
 media query from that breakpoint and up.
 The Box component uses [styled-system](https://github.com/jxnblk/styled-system) for these props.
@@ -196,7 +212,66 @@ The Box component uses [styled-system](https://github.com/jxnblk/styled-system) 
 <Box p={[ 1, 2, 3, 4 ]} />
 ```
 
+## Extending Components
+
+Using styled-components, you can customize any of the grid-styletr components' styles.
+
+
+### InlineFlex
+
+```js
+// Example
+import styled from 'styled-components'
+import { Flex } from 'grid-styletr'
+
+const InlineFlex = styled(Flex)`
+  display: inline-flex;
+`
+```
+
+### Max-Width Container
+
+```js
+// Example
+import styled from 'styled-components'
+import { Box } from 'grid-styletr'
+
+const Container = styled(Box)`
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+`
+```
+
+
+### Auto Grid
+
+Components can also be extended with React.
+This example creates components for a grid with set gutters where the columns expand to fill in the space.
+
+```jsx
+// Example
+import React from 'react'
+import { Flex, Box } from 'grid-styletr'
+
+const Row = props => (
+  <Flex
+    {...props}
+    mx={-3}
+  />
+)
+
+const Column = props => (
+  <Box
+    {...props}
+    px={3}
+    flex='1 1 auto'
+  />
+)
+```
+
 ## Theming
+
 
 Grid Styletr uses smart defaults, but to customize the values,
 use `ThemeProvider` component.
@@ -229,7 +304,7 @@ To customize, provide an array of numbers that will be converted to ems.
 
 ### Spacing Scale
 
-Grid Styletr components' margin and padding props use a 4 step spacing scale to help
+Grid Styled components' margin and padding props use a 4 step spacing scale to help
 keep things aligned and keep layouts consistent.
 
 The default scale is based on an 8px/powers-of-two grid: `[ 0, 8, 16, 32, 64 ]`,
@@ -242,4 +317,4 @@ which helps keep spacing consistent and elements aligned even when nesting compo
 - [styletron](https://github.com/rtsao/styletron)
 - [styled-components](https://github.com/styled-components/styled-components)
 
-MIT License
+[MIT License](LICENSE.md)

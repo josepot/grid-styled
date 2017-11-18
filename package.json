@@ -1,15 +1,12 @@
 {
   "name": "grid-styletr",
-  "version": "0.0.9",
+  "version": "2.0.0-11",
   "description": "Responsive React grid system built with styletron-react",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/josepot/grid-styletr.git"
-  },
   "main": "dist/index.js",
   "scripts": {
     "prepublish": "babel src -d dist",
-    "test": "ava"
+    "test": "nyc ava",
+    "cover": "nyc report --reporter=lcov --reporter=html"
   },
   "keywords": [
     "react",
@@ -19,38 +16,34 @@
     "layout",
     "css"
   ],
-  "author": "Brent Jackson",
+  "author": "Brent Jackson & Josep M Sobrepere",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.19.1",
-    "babel-cli": "^6.16.0",
-    "babel-loader": "^7.0.0",
-    "babel-preset-env": "^1.5.2",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
-    "babel-register": "^6.16.3",
-    "funcup": "^1.0.0-0",
-    "html-webpack-plugin": "^2.24.0",
-    "prop-types": "^15.5.4",
+    "ava": "^0.22.0",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "nyc": "^11.2.1",
     "raw-loader": "^0.5.1",
-    "react": "^15.5.4",
-    "react-addons-test-utils": "^15.3.2",
-    "react-dom": "^15.5.4",
-    "react-live": "^1.5.4",
-    "react-test-renderer": "^15.5.4",
-    "react-x-ray": "^1.0.0-1",
-    "reline": "^1.0.0-beta.3",
-    "repng": "^2.0.0-alpha.1",
-    "styletron-react": "^2.5.8",
-    "styletron-server": "^2.5.7"
+    "react": "^16.0.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.0.0",
+    "react-live": "^1.7.1",
+    "react-test-renderer": "^16.0.0",
+    "styletron-react": "^3.0.0-rc.3",
+    "styletron-server": "^3.0.0-rc.3"
   },
   "dependencies": {
-    "styled-system": "1.0.8"
+    "styled-system": "^1.0.2",
+    "tag-hoc": "^1.0.0"
   },
   "peerDependencies": {
-    "prop-types": "^15.5.4",
-    "react": "^15.5.4",
-    "styletron-react": "^2.5.8"
+    "prop-types": "^15.0.0-0 || ^16.0.0-0",
+    "react": "^15.0.0-0 || ^16.0.0-0",
+    "styletron-react": "^2.0.0-0 || ^3.0.0-0"
   },
   "ava": {
     "require": [

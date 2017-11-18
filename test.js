@@ -1,8 +1,8 @@
 import test from 'ava'
 import React from 'react'
-import {create} from 'react-test-renderer'
+import { create } from 'react-test-renderer'
 import Styletron from 'styletron-server'
-import {StyletronProvider} from 'styletron-react';
+import {StyletronProvider} from 'styletron-react'
 import {
   Box,
   Grid,
@@ -11,42 +11,70 @@ import {
 } from './src'
 import { flex } from './src/Box'
 
-const render = element => {
-  const styletron = new Styletron()
-  const renderedElement = create(
-    <StyletronProvider styletron={styletron}>
-    {element}
-    </StyletronProvider>
-  )
-  const styles = styletron.getStylesheetsHtml();
-  return {renderedElement, styles};
+class StyletronRenderer extends React.Component {
+  constructor(props, ctx) {
+    super(props, ctx);
+    this.state = {
+      styles: '',
+      styletron: new Styletron(),
+    }
+  }
+  componentDidMount() {
+    if (this.state.styles) return;
+    this.setState(({ styletron }) => ({
+      styletron,
+      styles: styletron
+        .getCss()
+        .split('}.')
+        .join('}\n    .'),
+    }))
+  }
+
+  render() {
+    return [
+      <StyletronProvider styletron={this.state.styletron} key="provider">
+        {this.props.children}
+      </StyletronProvider>,
+      <style key="styles">{this.state.styles}</style>,
+    ];
+  }
 }
+
+const render = element => create(
+  <StyletronRenderer>{element}</StyletronRenderer>
+).toJSON()
 
 // ThemeProvider
 test('ThemeProvider', t => {
-  const tp = render(
+  const json = render(
     <ThemeProvider theme={{breakpoints: [1, 2, 3]}}>
       <Box />
     </ThemeProvider>
   )
-  t.snapshot(tp);
+  t.snapshot(json);
 })
 
 
 // Box
 test('Box renders', t => {
-  const box = render(<Box m={2} px={3} />);
-  t.snapshot(box)
+  const json = render(<Box m={2} px={3} />)
+  t.snapshot(json)
 })
 
 test('Box renders with props', t => {
-  const box = render(<Box
+  const json = render(<Box
     m={[ 1, 2 ]}
     px={[ 1, 2 ]}
     w={1}
     flex='1 1 auto'
   />)
-  t.snapshot(box)
+  t.snapshot(json)
+})
+
+test('Box renders with `is` prop', t => {
+  const json = render(<Box is='section' />)
+  t.snapshot(json)
+  t.is(json[0].type, 'section')
 })
 
 test('flex util returns null', t => {
@@ -66,8 +94,8 @@ test('Grid renders', t => {
 })
 
 test('Grid has a classname', t => {
-  const {renderedElement} = render(<Grid />)
-  t.truthy(renderedElement.toJSON().props.className)
+  const [div] = render(<Grid />)
+  t.truthy(div.props.className)
 })
 
 // Flex
@@ -76,3 +104,35 @@ test('Flex renders', t => {
   t.snapshot(flex)
 })
 
+test('Flex renders with props', t => {
+  const flex = render(
+    <Flex
+      wrap
+      direction='column'
+      align='center'
+      justify='space-between'
+    />
+  )
+  t.snapshot(flex)
+})
+
+test('Flex renders with column prop', t => {
+  const flex = render(
+    <Flex
+      column
+    />
+  )
+  t.snapshot(flex)
+})
+
+test('Flex renders with responsive props', t => {
+  const flex = render(
+    <Flex
+      wrap={[ true, false ]}
+      direction={[ 'column', 'row' ]}
+      align={[ 'stretch', 'center' ]}
+      justify={[ 'space-between', 'center' ]}
+    />
+  )
+  t.snapshot(flex)
+})

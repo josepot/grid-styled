@@ -1,24 +1,35 @@
 import React from 'react'
-import { space, width, removeProps, propTypes } from 'styled-system'
+import { space, width, responsiveStyle } from 'styled-system'
+import { number, string, array, oneOfType } from 'prop-types'
+import tag from 'tag-hoc'
+import propTypes from './propTypes'
+import removeProps from './remove-props'
 import styled from './styled'
 
-const CleanDiv = props => {
-  const cleanProps = removeProps(props)
-  return <div {...cleanProps} />
-}
+export const flex = responsiveStyle('flex')
+export const order = responsiveStyle('order')
 
-CleanDiv.propTypes = {
-  ...propTypes.width,
-  ...propTypes.wrap,
-}
+const Tag = tag(removeProps)
+const Base = Tag('div')
 
-export const flex = ({flex}) => flex ? {flex} : null
-
-const Box = styled(CleanDiv,
-  {boxSizing: 'border-box'},
+const Box = styled(Base,
+  { boxSizing: 'border-box' },
   width,
   space,
-  flex
+  flex,
+  order
 )
+Box.displayName = 'Box'
+
+const responsivePropType = oneOfType([
+  number,
+  string,
+  array
+])
+
+Box.propTypes = Object.assign({}, propTypes, {
+  flex: responsivePropType,
+  order: responsivePropType
+})
 
 export default Box
