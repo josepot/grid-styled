@@ -1,6 +1,6 @@
 {
   "name": "grid-styletr",
-  "version": "2.0.0-12",
+  "version": "2.0.0-13",
   "description": "Responsive React grid system built with styletron-react",
   "main": "dist/index.js",
   "scripts": {
@@ -19,9 +19,8 @@
   "author": "Brent Jackson & Josep M Sobrepere",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.22.0",
+    "ava": "^0.23.0",
     "babel-cli": "^6.26.0",
-    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -29,7 +28,6 @@
     "nyc": "^11.2.1",
     "raw-loader": "^0.5.1",
     "react": "^16.0.0",
-    "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.0.0",
     "react-live": "^1.7.1",
     "react-test-renderer": "^16.0.0",
@@ -37,12 +35,12 @@
     "styletron-server": "^3.0.0-rc.3"
   },
   "dependencies": {
+    "prop-types": "^15.6.0",
     "styled-system": "^1.0.2"
   },
   "peerDependencies": {
-    "prop-types": "15.x",
-    "react": "15.x || 16.x",
-    "styletron-react": "2.x || 3.x"
+    "react": "^15.0.0-0 || ^16.0.0-0",
+    "styletron-react": ">= 2.0.2"
   },
   "ava": {
     "require": [
