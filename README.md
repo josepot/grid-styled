@@ -214,33 +214,33 @@ The Box component uses [styled-system](https://github.com/jxnblk/styled-system) 
 
 ## Extending Components
 
-Using styled-components, you can customize any of the grid-styletr components' styles.
+Using styletron-react, you can customize any of the grid-styletr components' styles.
 
 
 ### InlineFlex
 
 ```js
 // Example
-import styled from 'styled-components'
+import { styled } from 'styletron-react'
 import { Flex } from 'grid-styletr'
 
-const InlineFlex = styled(Flex)`
-  display: inline-flex;
-`
+const InlineFlex = styled(Flex, {
+  display: 'inline-flex'
+})
 ```
 
 ### Max-Width Container
 
 ```js
 // Example
-import styled from 'styled-components'
+import { styled } from 'styletron-react'
 import { Box } from 'grid-styletr'
 
-const Container = styled(Box)`
-  max-width: 1024px;
-  margin-left: auto;
-  margin-right: auto;
-`
+const Container = styled(Box, {
+  maxWidth: '1024px',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+})
 ```
 
 
@@ -304,7 +304,7 @@ To customize, provide an array of numbers that will be converted to ems.
 
 ### Spacing Scale
 
-Grid Styled components' margin and padding props use a 4 step spacing scale to help
+Grid Styletr components' margin and padding props use a 4 step spacing scale to help
 keep things aligned and keep layouts consistent.
 
 The default scale is based on an 8px/powers-of-two grid: `[ 0, 8, 16, 32, 64 ]`,
