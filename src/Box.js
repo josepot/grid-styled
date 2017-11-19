@@ -1,7 +1,7 @@
 import React from 'react'
 import { space, width, responsiveStyle } from 'styled-system'
 import { number, string, array, oneOfType } from 'prop-types'
-import tag from 'tag-hoc'
+import tag from './tag-hoc'
 import propTypes from './propTypes'
 import removeProps from './remove-props'
 import styled from './styled'

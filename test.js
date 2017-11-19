@@ -26,7 +26,7 @@ class StyletronRenderer extends React.Component {
       styles: styletron
         .getCss()
         .split('}.')
-        .join('}\n    .'),
+        .join('}\n.'),
     }))
   }
 

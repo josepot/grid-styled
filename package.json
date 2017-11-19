@@ -1,6 +1,6 @@
 {
   "name": "grid-styletr",
-  "version": "2.0.0-11",
+  "version": "2.0.0-12",
   "description": "Responsive React grid system built with styletron-react",
   "main": "dist/index.js",
   "scripts": {
@@ -37,13 +37,12 @@
     "styletron-server": "^3.0.0-rc.3"
   },
   "dependencies": {
-    "styled-system": "^1.0.2",
-    "tag-hoc": "^1.0.0"
+    "styled-system": "^1.0.2"
   },
   "peerDependencies": {
-    "prop-types": "^15.0.0-0 || ^16.0.0-0",
-    "react": "^15.0.0-0 || ^16.0.0-0",
-    "styletron-react": "^2.0.0-0 || ^3.0.0-0"
+    "prop-types": "15.x",
+    "react": "15.x || 16.x",
+    "styletron-react": "2.x || 3.x"
   },
   "ava": {
     "require": [
