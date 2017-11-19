@@ -3,7 +3,7 @@
 
 Responsive React grid system built with [styletron-react](https://github.com/rtsao/styletron)
 
-A crappy fork of [grid-styled](https://github.com/jxnblk/grid-styled)
+A fork of [grid-styled](https://github.com/jxnblk/grid-styled): "same" API but for [styletron-react](https://github.com/rtsao/styletron)
 
 ## Getting Started
 
