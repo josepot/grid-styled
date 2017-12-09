@@ -6,3 +6,5 @@ export { default as Third } from './Third'
 export { default as Quarter } from './Quarter'
 export { default as Golden } from './Golden'
 export { default as ThemeProvider } from './ThemeProvider'
+export { default as withBox } from './withBox'
+export { default as withFlex } from './withFlex';
