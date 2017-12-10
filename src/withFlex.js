@@ -3,6 +3,7 @@ import { responsiveStyle } from 'styled-system'
 import { oneOfType, number, string, array, bool } from 'prop-types'
 import propTypes from './propTypes'
 import styled from './styled'
+import withBox from './withBox';
 
 const wrap = responsiveStyle('flex-wrap', 'wrap', 'wrap')
 const direction = responsiveStyle('flex-direction', 'direction')
@@ -11,7 +12,7 @@ const justify = responsiveStyle('justify-content', 'justify')
 const column = props => props.column ? {flexDirection: 'column'} : null
 
 export default base => {
-  const Flex = styled(base,
+  const Flex = styled(withBox(base),
     { display: 'flex' },
     wrap,
     column,
