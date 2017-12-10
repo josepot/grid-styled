@@ -6,8 +6,8 @@ import styled from './styled'
 
 const wrap = responsiveStyle('flex-wrap', 'wrap', 'wrap')
 const direction = responsiveStyle('flex-direction', 'direction')
-const align = props => responsiveStyle('align-items', 'align')
-const justify = props => responsiveStyle('justify-content', 'justify')
+const align = responsiveStyle('align-items', 'align')
+const justify = responsiveStyle('justify-content', 'justify')
 const column = props => props.column ? {flexDirection: 'column'} : null
 
 export default base => {
