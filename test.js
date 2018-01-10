@@ -61,6 +61,14 @@ test('Box renders', t => {
   t.snapshot(json)
 })
 
+test('Box merges media queries', t => {
+  const json = render(<Box
+    w={[1 / 2, 1 / 2, 1.25 / 12]}
+    pr={[0, 0, 0]}
+  />)
+  t.snapshot(json)
+})
+
 test('Box renders with props', t => {
   const json = render(<Box
     m={[ 1, 2 ]}

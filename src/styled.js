@@ -11,7 +11,17 @@ export default (component, ...styles) => {
           typeof style === 'function' ? style({...props, theme}) : style
       )
       .filter(x => !!x)
-      .reduce((res, style) => Object.assign(res, style), {})
+      .reduce((res, styles) => {
+        Object.keys(styles).forEach(key => {
+          const style = styles[key];
+          if (typeof style === 'object' && res[key]) {
+            Object.assign(res[key], style);
+          } else {
+            res[key] = style;
+          }
+        });
+        return res;
+      }, {})
   );
 
   Component.contextTypes = {
