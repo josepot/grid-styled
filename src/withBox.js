@@ -9,8 +9,12 @@ import styled from './styled'
 const flex = responsiveStyle('flex')
 const order = responsiveStyle('order')
 
+const cache = {};
+const Tag = tag(removeProps)
+
 export default base => {
-  const Tag = tag(removeProps)
+  if (cache[base]) return cache[base];
+
   const Base = Tag(base)
 
   const Box = styled(Base,
@@ -32,6 +36,8 @@ export default base => {
     flex: responsivePropType,
     order: responsivePropType
   })
+
+  if (typeof base === 'string') cache[base] = Box;
 
   return Box;
 }

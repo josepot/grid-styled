@@ -11,7 +11,11 @@ const align = responsiveStyle('align-items', 'align')
 const justify = responsiveStyle('justify-content', 'justify')
 const column = props => props.column ? {flexDirection: 'column'} : null
 
+const cache = {};
+
 export default base => {
+  if (cache[base]) return cache[base];
+
   const Flex = styled(withBox(base),
     { display: 'flex' },
     wrap,
@@ -36,6 +40,8 @@ export default base => {
     justify: responsivePropType,
     column: bool
   })
+
+  if (typeof base === 'string') cache[base] = Flex;
 
   return Flex;
 }
