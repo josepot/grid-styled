@@ -44,10 +44,6 @@
   dependencies:
     arrify "^1.0.1"
 
-"@types/react@*":
-  version "16.0.25"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.25.tgz#bf696b83fe480c5e0eff4335ee39ebc95884a1ed"
-
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -1077,8 +1073,8 @@ boom@2.x.x:
     hoek "2.x.x"
 
 bowser@^1.7.3:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/bowser/-/bowser-1.8.1.tgz#49785777e7302febadb1a5b71d9a646520ed310d"
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/bowser/-/bowser-1.9.1.tgz#f86ef2132e8cb10b3eb6ea5af018758c587020db"
 
 boxen@^1.2.1:
   version "1.2.2"
@@ -2040,9 +2036,9 @@ ini@^1.3.4, ini@~1.3.0:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.4.tgz#0537cb79daf59b59a1a517dff706c86ec039162e"
 
-inline-style-prefixer@^3.0.3:
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/inline-style-prefixer/-/inline-style-prefixer-3.0.8.tgz#8551b8e5b4d573244e66a34b04f7d32076a2b534"
+inline-style-prefixer@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/inline-style-prefixer/-/inline-style-prefixer-4.0.0.tgz#30a03df1b346ba6b1fb8a812bc3c9dabef48022d"
   dependencies:
     bowser "^1.7.3"
     css-in-js-utils "^2.0.0"
@@ -3475,25 +3471,16 @@ styled-system@^1.0.2:
   dependencies:
     prop-types "^15.6.0"
 
-styletron-client@^3.0.0-rc.3:
-  version "3.0.0-rc.3"
-  resolved "https://registry.yarnpkg.com/styletron-client/-/styletron-client-3.0.0-rc.3.tgz#41fbca51a6bd22ba6145df1cb57cfaada119aeab"
-  dependencies:
-    styletron-core "^3.0.0-rc.3"
-
 styletron-core@^3.0.0-rc.3:
   version "3.0.0-rc.3"
   resolved "https://registry.yarnpkg.com/styletron-core/-/styletron-core-3.0.0-rc.3.tgz#9468e275d9085d2e5d6d6468cc6d8733dbfa3cba"
 
-styletron-react@^3.0.0-rc.3:
-  version "3.0.0-rc.3"
-  resolved "https://registry.yarnpkg.com/styletron-react/-/styletron-react-3.0.0-rc.3.tgz#80fdca3360270b2841aecb62c56c5b2ca8365a9a"
+styletron-react-compose@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/styletron-react-compose/-/styletron-react-compose-0.0.5.tgz#f17fe745cde8e4405fbd354d7b2e67b3cbd11cf1"
   dependencies:
-    "@types/react" "*"
-    prop-types "^15.5.8"
-    styletron-client "^3.0.0-rc.3"
-    styletron-server "^3.0.0-rc.3"
-    styletron-utils "^3.0.0-rc.3"
+    prop-types "^15.6.0"
+    styletron-utils "^3.0.4"
 
 styletron-server@^3.0.0-rc.3:
   version "3.0.0-rc.3"
@@ -3501,11 +3488,11 @@ styletron-server@^3.0.0-rc.3:
   dependencies:
     styletron-core "^3.0.0-rc.3"
 
-styletron-utils@^3.0.0-rc.3:
-  version "3.0.0-rc.3"
-  resolved "https://registry.yarnpkg.com/styletron-utils/-/styletron-utils-3.0.0-rc.3.tgz#21fef2099f1c368e6ff2b8f76bf7a64bb547b760"
+styletron-utils@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/styletron-utils/-/styletron-utils-3.0.4.tgz#6696320f6ade52383006c4d47e72c5c6a1f37b15"
   dependencies:
-    inline-style-prefixer "^3.0.3"
+    inline-style-prefixer "^4.0.0"
 
 supports-color@^2.0.0:
   version "2.0.0"

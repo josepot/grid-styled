@@ -2,7 +2,7 @@ import test from 'ava'
 import React from 'react'
 import { create } from 'react-test-renderer'
 import Styletron from 'styletron-server'
-import {StyletronProvider} from 'styletron-react'
+import {StyletronProvider} from 'styletron-react-compose'
 import {
   Box,
   Grid,
