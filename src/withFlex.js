@@ -1,7 +1,7 @@
 import React from 'react'
 import { responsiveStyle } from 'styled-system'
 import { oneOfType, number, string, array, bool } from 'prop-types'
-import propTypes from './propTypes'
+import commonPropTypes from './propTypes'
 import styled from './styled'
 import withBox from './withBox';
 
@@ -11,7 +11,20 @@ const align = responsiveStyle('align-items', 'align')
 const justify = responsiveStyle('justify-content', 'justify')
 const column = props => props.column ? {flexDirection: 'column'} : null
 
-const cache = {};
+const responsivePropType = oneOfType([
+  number,
+  string,
+  array,
+  bool
+])
+const propTypes = Object.assign({}, commonPropTypes, {
+  wrap: responsivePropType,
+  direction: responsivePropType,
+  align: responsivePropType,
+  justify: responsivePropType,
+  column: bool
+})
+const cache = {}
 
 export default base => {
   if (cache[base]) return cache[base];
@@ -25,23 +38,9 @@ export default base => {
     justify,
   )
   Flex.displayName = 'Flex'
+  Flex.propTypes = propTypes
 
-  const responsivePropType = oneOfType([
-    number,
-    string,
-    array,
-    bool
-  ])
+  if (typeof base === 'string') cache[base] = Flex
 
-  Flex.propTypes = Object.assign({}, propTypes, {
-    wrap: responsivePropType,
-    direction: responsivePropType,
-    align: responsivePropType,
-    justify: responsivePropType,
-    column: bool
-  })
-
-  if (typeof base === 'string') cache[base] = Flex;
-
-  return Flex;
+  return Flex
 }

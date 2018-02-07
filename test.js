@@ -48,7 +48,7 @@ const render = element => create(
 test('ThemeProvider', t => {
   const json = render(
     <ThemeProvider theme={{breakpoints: [1, 2, 3]}}>
-      <Box />
+      <Box w={[1, 2, 3, 4]} />
     </ThemeProvider>
   )
   t.snapshot(json);

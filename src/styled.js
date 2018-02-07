@@ -1,10 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {styled} from 'styletron-react-compose';
-import {themeShape} from './ThemeProvider';
 
-export default (component, ...styles) => {
-  const Component = styled((props, {theme = {}}) =>
+export default (component, ...styles) => styled(
+  (props, {theme = {}}) =>
     styles
       .map(
         style =>
@@ -22,13 +20,5 @@ export default (component, ...styles) => {
         });
         return res;
       }, {}),
-    component,
-  );
-
-  Component.contextTypes = {
-    ...Component.contextTypes,
-    theme: PropTypes.shape(themeShape),
-  };
-
-  return Component;
-};
+  component,
+)

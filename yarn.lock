@@ -3475,9 +3475,9 @@ styletron-core@^3.0.0-rc.3:
   version "3.0.0-rc.3"
   resolved "https://registry.yarnpkg.com/styletron-core/-/styletron-core-3.0.0-rc.3.tgz#9468e275d9085d2e5d6d6468cc6d8733dbfa3cba"
 
-styletron-react-compose@0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/styletron-react-compose/-/styletron-react-compose-0.0.5.tgz#f17fe745cde8e4405fbd354d7b2e67b3cbd11cf1"
+styletron-react-compose@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/styletron-react-compose/-/styletron-react-compose-0.0.6.tgz#f452138302479ba2b1c97c9a97c85c8275b5dc0c"
   dependencies:
     prop-types "^15.6.0"
     styletron-utils "^3.0.4"
